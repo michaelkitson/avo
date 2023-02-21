@@ -296,7 +296,7 @@ module Avo
 
     def attached_file_fields
       get_field_definitions.select do |field|
-        [Avo::Fields::FileField, Avo::Fields::FilesField].include? field.class
+        [Avo::Fields::FileField, Avo::Fields::FilesField].include?(field.class) && !field.computed
       end
     end
 
